@@ -2,10 +2,10 @@ import Logo from "@/lib/Logo";
 
 const Navbar = () => {
     return (
-        <nav className="w-full border-b border-[#1A1C21] bg-[#0D0F12] text-white">
+        <nav className="w-full border-b border-[#1A1C21] bg-[#0D0F12] text-white py-5">
             <div className="container mx-auto flex h-14 items-center justify-between px-4">
 
-            {/* Logo Added to lib folder */}
+            {/* Logo Added from lib folder */}
                 <Logo />
 
                 <div className="flex items-center gap-1 text-[14px]">
