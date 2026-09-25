@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { IApi } from "@/types/apiType";
+import Link from "next/link";
 
 
 
@@ -9,7 +10,8 @@ interface ILibraryCardProps {
 
 const LibrarySectionCard = ({item}: ILibraryCardProps) => {
   return (
-    <div className="cursor-pointer hover:border-[#C2F800] border rounded-lg overflow-hidden bg-[#1A1C21] text-white transition-all duration-300 hover:shadow-lg">
+    <Link href={`/library/${item.id}`}>
+      <div className="cursor-pointer hover:border-[#C2F800] border rounded-lg overflow-hidden bg-[#1A1C21] text-white transition-all duration-300 hover:shadow-lg">
       
       {/* Image */}
       <figure className="h-44 overflow-hidden">
@@ -68,7 +70,8 @@ const LibrarySectionCard = ({item}: ILibraryCardProps) => {
 
         </div>
       </div>
-    </div>
+      </div>
+    </Link>
   );
 };
 

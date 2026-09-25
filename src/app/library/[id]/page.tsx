@@ -1,5 +1,6 @@
 import { IApi } from "@/types/apiType";
 import Image from "next/image";
+import WorkoutActions from "@/components/shared/WorkoutActions";
 
 interface ICardDetailsPageProps {
   params: Promise<{
@@ -141,15 +142,7 @@ const CardDetailsPage = async ({ params }: ICardDetailsPageProps) => {
             </div>
 
             {/* ================= BUTTONS ================= */}
-            <div className="flex flex-wrap gap-2 mt-5">
-              <button className="bg-[#C2F800] text-black px-4 py-2 rounded-lg text-[15px] font-semibold hover:bg-[#d2ff35] transition">
-                + Add to today&apos;s plan
-              </button>
-
-              <button className="border border-gray-500 px-4 py-2 rounded-lg text-[15px] hover:border-[#C2F800] transition">
-                ☆ Save for later
-              </button>
-            </div>
+            <WorkoutActions workout={itemCard} />
           </div>
         </div>
       </div>
