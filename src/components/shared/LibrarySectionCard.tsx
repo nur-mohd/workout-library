@@ -12,13 +12,13 @@ const LibrarySectionCard = ({item}: ILibraryCardProps) => {
     <div className="cursor-pointer hover:border-[#C2F800] border rounded-lg overflow-hidden bg-[#1A1C21] text-white transition-all duration-300 hover:shadow-lg">
       
       {/* Image */}
-      <figure className="h-36 overflow-hidden">
+      <figure className="h-44 overflow-hidden">
         <Image
           src={item.image}
           alt={item.name}
           width={300}
           height={500}
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover object-[center_20%]"
         />
       </figure>
 
