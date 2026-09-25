@@ -10,6 +10,7 @@ interface WorkoutPlanContextValue {
   loading: boolean;
   addToTodayPlan: (workout: IApi) => void;
   saveForLater: (workout: IApi) => void;
+  markAsDone: (id: number) => void;
   removeFromTodayPlan: (id: number) => void;
   removeFromSaved: (id: number) => void;
 }
@@ -80,6 +81,11 @@ export function WorkoutPlanProvider({ children }: { children: ReactNode }) {
     toast.info("Removed from today's plan");
   };
 
+  const markAsDone = (id: number) => {
+    setTodayPlan((current) => current.filter((item) => item.id !== id));
+    toast.success("Workout marked as done");
+  };
+
   const removeFromSaved = (id: number) => {
     setSavedWorkouts((current) => current.filter((item) => item.id !== id));
     toast.info("Removed from saved workouts");
@@ -93,6 +99,7 @@ export function WorkoutPlanProvider({ children }: { children: ReactNode }) {
         loading,
         addToTodayPlan,
         saveForLater,
+        markAsDone,
         removeFromTodayPlan,
         removeFromSaved,
       }}

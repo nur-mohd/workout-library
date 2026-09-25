@@ -14,6 +14,7 @@ const MyPlanPage = () => {
     todayPlan,
     savedWorkouts,
     loading,
+    markAsDone,
     removeFromTodayPlan,
     removeFromSaved,
   } = useWorkoutPlan();
@@ -120,6 +121,7 @@ const MyPlanPage = () => {
                 key={workout.id}
                 workout={workout}
                 tab={activeTab}
+                onMarkAsDone={markAsDone}
                 onRemove={
                   activeTab === "today"
                     ? removeFromTodayPlan
@@ -137,10 +139,12 @@ const MyPlanPage = () => {
 const WorkoutCard = ({
   workout,
   tab,
+  onMarkAsDone,
   onRemove,
 }: {
   workout: IApi;
   tab: PlanTab;
+  onMarkAsDone: (id: number) => void;
   onRemove: (id: number) => void;
 }) => (
   <div className="bg-[#1A1C21] border border-[#292C33] rounded-xl p-4">
@@ -173,7 +177,7 @@ const WorkoutCard = ({
         {tab === "today" && (
           <button
             className="btn btn-sm bg-[#C2F800] text-black border-none hover:bg-[#d5ff38]"
-            onClick={() => onRemove(workout.id)}
+            onClick={() => onMarkAsDone(workout.id)}
           >
             ✓ Mark as Done
           </button>
